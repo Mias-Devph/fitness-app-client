@@ -34,12 +34,12 @@ const Login = () => {
   };
 
   return (
-    <div className="container mt-5">
+    <div className="container mt-5" style={{ maxWidth: 400 }}>
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
         <input className="form-control my-2" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
         <input className="form-control my-2" placeholder="Password" type="password" value={password} onChange={e => setPassword(e.target.value)} />
-        <button className="btn btn-primary">Login</button>
+        <button className="btn btn-dark">Login</button>
       </form>
     </div>
   );

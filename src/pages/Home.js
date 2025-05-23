@@ -1,208 +1,182 @@
-import React from "react";
-import { FaRunning, FaFireAlt, FaHeartbeat, FaMedal, FaPlus, FaTint, FaDumbbell } from "react-icons/fa";
+import React from 'react';
+import { Container, Row, Col, Button, Card, Carousel, Navbar, Nav } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
-  // Sample fitness data
-  const fitnessData = {
-    steps: 8432,
-    calories: 1245,
-    heartRate: 72,
-    activeMinutes: 45,
-    weeklyGoal: 75,
-    waterIntake: 5,
-    workoutsThisWeek: 4,
-    lastWorkout: {
-      type: "Morning Run",
-      time: "Today, 7:30 AM",
-      details: "5.2 km • 32 min • 420 kcal"
-    }
-  };
-
   return (
-    <div className="bg-light min-vh-100">
-      {/* Your existing Navbar will be inserted here automatically */}
+    <>
 
-      {/* Main Content */}
-      <main className="container py-4">
-        {/* Welcome Banner */}
-        <div className="alert alert-info mb-4">
-          <h2 className="h4 mb-0">Welcome back! Ready for your next workout?</h2>
-        </div>
-
-        {/* Daily Stats */}
-        <section className="mb-5">
-          <h2 className="h4 mb-3">Today's Activity</h2>
-          <div className="row g-4">
-            {/* Steps */}
-            <div className="col-md-6 col-lg-3">
-              <div className="card h-100 border-start border-primary border-4">
-                <div className="card-body">
-                  <div className="d-flex justify-content-between align-items-start">
-                    <div>
-                      <h3 className="card-title h6 text-muted">Steps</h3>
-                      <p className="h2 mb-0">{fitnessData.steps.toLocaleString()}</p>
-                      <small className="text-muted">Goal: 10,000</small>
-                    </div>
-                    <FaRunning className="text-primary fs-3" />
-                  </div>
-                  <div className="progress mt-3" style={{ height: "8px" }}>
-                    <div 
-                      className="progress-bar bg-primary" 
-                      role="progressbar" 
-                      style={{ width: `${Math.min(100, (fitnessData.steps/10000)*100)}%` }}
-                    ></div>
-                  </div>
-                </div>
+      {/* Hero Section */}
+      <section className="bg-dark text-white py-5">
+        <Container>
+          <Row className="align-items-center">
+            <Col lg={6} className="mb-4 mb-lg-0">
+              <h1 className="display-4 fw-bold mb-3">Track Your Fitness Journey</h1>
+              <p className="lead mb-4">
+                HatawHub helps you monitor workouts, set goals, and achieve better results. 
+                Join thousands of users transforming their fitness habits.
+              </p>
+              <div className="d-flex gap-3">
+                <Button as={Link} to="/register" variant="primary" size="lg">
+                  Get Started
+                </Button>
+                <Button as={Link} to="https://www.youtube.com/watch?v=dQw4w9WgXcQ" variant="outline-light" size="lg">
+                  Learn More
+                </Button>
               </div>
-            </div>
+            </Col>
+            <Col lg={6}>
+              <img 
+                src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                alt="Fitness tracking app" 
+                className="img-fluid rounded shadow"
+              />
+            </Col>
+          </Row>
+        </Container>
+      </section>
 
-            {/* Calories */}
-            <div className="col-md-6 col-lg-3">
-              <div className="card h-100 border-start border-danger border-4">
-                <div className="card-body">
-                  <div className="d-flex justify-content-between align-items-start">
-                    <div>
-                      <h3 className="card-title h6 text-muted">Calories</h3>
-                      <p className="h2 mb-0">{fitnessData.calories}</p>
-                      <small className="text-muted">Burned today</small>
-                    </div>
-                    <FaFireAlt className="text-danger fs-3" />
+      {/* Features Section */}
+      <section className="py-5">
+        <Container>
+          <h2 className="text-center mb-5">Why Choose HatawHub?</h2>
+          <Row className="g-4">
+            <Col md={4}>
+              <Card className="h-100 border-0 shadow-sm">
+                <Card.Body className="text-center p-4">
+                  <div className="bg-primary bg-opacity-10 text-primary rounded-circle p-3 mb-3 mx-auto" style={{width: '60px', height: '60px'}}>
+                    <i className="bi bi-graph-up fs-3"></i>
                   </div>
-                </div>
-              </div>
-            </div>
+                  <h4>Progress Tracking</h4>
+                  <p>Monitor your strength gains, endurance improvements, and body measurements over time.</p>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col md={4}>
+              <Card className="h-100 border-0 shadow-sm">
+                <Card.Body className="text-center p-4">
+                  <div className="bg-primary bg-opacity-10 text-primary rounded-circle p-3 mb-3 mx-auto" style={{width: '60px', height: '60px'}}>
+                    <i className="bi bi-collection-play fs-3"></i>
+                  </div>
+                  <h4>Workout Library</h4>
+                  <p>Access hundreds of pre-made workouts or create your own custom routines.</p>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col md={4}>
+              <Card className="h-100 border-0 shadow-sm">
+                <Card.Body className="text-center p-4">
+                  <div className="bg-primary bg-opacity-10 text-primary rounded-circle p-3 mb-3 mx-auto" style={{width: '60px', height: '60px'}}>
+                    <i className="bi bi-phone fs-3"></i>
+                  </div>
+                  <h4>Mobile Friendly</h4>
+                  <p>Track your workouts anywhere with our mobile-optimized platform.</p>
+                </Card.Body>
+              </Card>
+            </Col>
+          </Row>
+        </Container>
+      </section>
 
-            {/* Heart Rate */}
-            <div className="col-md-6 col-lg-3">
-              <div className="card h-100 border-start border-success border-4">
-                <div className="card-body">
-                  <div className="d-flex justify-content-between align-items-start">
-                    <div>
-                      <h3 className="card-title h6 text-muted">Heart Rate</h3>
-                      <p className="h2 mb-0">{fitnessData.heartRate}</p>
-                      <small className="text-muted">bpm (resting)</small>
-                    </div>
-                    <FaHeartbeat className="text-success fs-3" />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Active Minutes */}
-            <div className="col-md-6 col-lg-3">
-              <div className="card h-100 border-start border-warning border-4">
-                <div className="card-body">
-                  <div className="d-flex justify-content-between align-items-start">
-                    <div>
-                      <h3 className="card-title h6 text-muted">Active Minutes</h3>
-                      <p className="h2 mb-0">{fitnessData.activeMinutes}</p>
-                      <small className="text-muted">Goal: 60 min</small>
-                    </div>
-                    <FaMedal className="text-warning fs-3" />
-                  </div>
-                  <div className="progress mt-3" style={{ height: "8px" }}>
-                    <div 
-                      className="progress-bar bg-warning" 
-                      role="progressbar" 
-                      style={{ width: `${Math.min(100, (fitnessData.activeMinutes/60)*100)}%` }}
-                    ></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Weekly Progress and Quick Actions */}
-        <div className="row">
-          {/* Weekly Progress */}
-          <div className="col-lg-8 mb-4">
-            <div className="card">
-              <div className="card-body">
-                <h2 className="h4 mb-3">Weekly Progress</h2>
-                <div className="d-flex justify-content-between align-items-center mb-3">
-                  <p className="mb-0">You've completed {fitnessData.weeklyGoal}% of your weekly goal</p>
-                  <button className="btn btn-sm btn-outline-primary">View Details</button>
-                </div>
-                <div className="progress" style={{ height: "10px" }}>
-                  <div 
-                    className="progress-bar progress-bar-striped bg-success" 
-                    role="progressbar" 
-                    style={{ width: `${fitnessData.weeklyGoal}%` }}
-                  ></div>
-                </div>
-                
-                <div className="row mt-4 g-3">
-                  <div className="col-md-6">
-                    <div className="p-3 bg-light rounded">
-                      <h3 className="h6 text-muted">Water Intake</h3>
-                      <p className="h4 mb-0">{fitnessData.waterIntake} <small className="text-muted">glasses</small></p>
-                      <FaTint className="text-info mt-2" />
+      {/* Testimonials */}
+      <section className="bg-light py-5">
+        <Container>
+          <h2 className="text-center mb-5">What Our Users Say</h2>
+          <Row className="justify-content-center">
+            <Col lg={8}>
+              <Carousel indicators={false} className="shadow">
+                <Carousel.Item className="p-4 p-lg-5 bg-white rounded">
+                  <div className="text-center">
+                    <p className="fs-4 fst-italic mb-4">
+                      "HatawHub has completely transformed my workout routine. I've gained 10lbs of muscle in 3 months by following the progressive overload tracking."
+                    </p>
+                    <div className="d-flex justify-content-center align-items-center">
+                      <img 
+                        src="https://randomuser.me/api/portraits/men/32.jpg" 
+                        alt="User" 
+                        className="rounded-circle me-3" 
+                        width="60"
+                      />
+                      <div className="text-start">
+                        <h5 className="mb-0">Sir Andrei</h5>
+                        <small className="text-muted">Fitness Enthusiast</small>
+                      </div>
                     </div>
                   </div>
-                  <div className="col-md-6">
-                    <div className="p-3 bg-light rounded">
-                      <h3 className="h6 text-muted">Workouts This Week</h3>
-                      <p className="h4 mb-0">{fitnessData.workoutsThisWeek} <small className="text-muted">sessions</small></p>
-                      <FaDumbbell className="text-primary mt-2" />
+                </Carousel.Item>
+                <Carousel.Item className="p-4 p-lg-5 bg-white rounded">
+                  <div className="text-center">
+                    <p className="fs-4 fst-italic mb-4">
+                      "As a beginner, I was overwhelmed with where to start. HatawHub's guided programs made it so easy to build consistency and see results."
+                    </p>
+                    <div className="d-flex justify-content-center align-items-center">
+                      <img 
+                        src="https://randomuser.me/api/portraits/women/44.jpg" 
+                        alt="User" 
+                        className="rounded-circle me-3" 
+                        width="60"
+                      />
+                      <div className="text-start">
+                        <h5 className="mb-0">Ms. Nikkie</h5>
+                        <small className="text-muted">Yoga Instructor</small>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
-            </div>
-          </div>
+                </Carousel.Item>
+              </Carousel>
+            </Col>
+          </Row>
+        </Container>
+      </section>
 
-          {/* Quick Actions */}
-          <div className="col-lg-4 mb-4">
-            <div className="card">
-              <div className="card-body">
-                <h2 className="h4 mb-3">Quick Actions</h2>
-                <div className="d-grid gap-2">
-                  <button className="btn btn-outline-primary text-start d-flex align-items-center">
-                    <FaPlus className="me-2" /> Start New Workout
-                  </button>
-                  <button className="btn btn-outline-success text-start d-flex align-items-center">
-                    <FaPlus className="me-2" /> Log Meal
-                  </button>
-                  <button className="btn btn-outline-info text-start d-flex align-items-center">
-                    <FaPlus className="me-2" /> Track Water
-                  </button>
-                  <button className="btn btn-outline-warning text-start d-flex align-items-center">
-                    <FaPlus className="me-2" /> Add Measurement
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Last Workout */}
-        <section className="card">
-          <div className="card-body">
-            <h2 className="h4 mb-3">Last Workout</h2>
-            <div className="list-group">
-              <div className="list-group-item">
-                <div className="d-flex w-100 justify-content-between">
-                  <h5 className="mb-1">{fitnessData.lastWorkout.type}</h5>
-                  <small>{fitnessData.lastWorkout.time}</small>
-                </div>
-                <p className="mb-1">{fitnessData.lastWorkout.details}</p>
-                <button className="btn btn-sm btn-outline-primary mt-2">
-                  View Details
-                </button>
-              </div>
-            </div>
-          </div>
-        </section>
-      </main>
+      {/* Call to Action */}
+      <section className="py-5 bg-primary text-white">
+        <Container className="text-center py-4">
+          <h2 className="display-5 fw-bold mb-4">Ready to Transform Your Fitness?</h2>
+          <p className="lead mb-5">Join thousands of users achieving their fitness goals with HatawHub</p>
+          <Button as={Link} to="/register" variant="light" size="lg" className="px-4">
+            Start Your Free Trial
+          </Button>
+        </Container>
+      </section>
 
       {/* Footer */}
-      <footer className="bg-dark text-white py-3 mt-4">
-        <div className="container text-center">
-          <p className="mb-0 small">&copy; {new Date().getFullYear()} FitTrack Fitness App</p>
-        </div>
+      <footer className="bg-dark text-white py-4">
+        <Container>
+          <Row>
+            <Col md={4} className="mb-4 mb-md-0">
+              <h5 className="mb-3">HatawHub</h5>
+              <p>The ultimate fitness tracking platform to help you achieve your workout goals.</p>
+            </Col>
+            <Col md={2} className="mb-4 mb-md-0">
+              <h5 className="mb-3">Links</h5>
+              <ul className="list-unstyled">
+                <li className="mb-2"><a href="#" className="text-white text-decoration-none">Home</a></li>
+              </ul>
+            </Col>
+            <Col md={2} className="mb-4 mb-md-0">
+              <h5 className="mb-3">Legal</h5>
+              <ul className="list-unstyled">
+                <li className="mb-2"><a href="#" className="text-white text-decoration-none">Privacy</a></li>
+                <li className="mb-2"><a href="#" className="text-white text-decoration-none">Terms</a></li>
+                <li className="mb-2"><a href="#" className="text-white text-decoration-none">Cookie Policy</a></li>
+              </ul>
+            </Col>
+            <Col md={4}>
+              <h5 className="mb-3">Subscribe to Newsletter</h5>
+              <div className="d-flex">
+                <input type="email" className="form-control" placeholder="Your email" />
+                <Button variant="outline-light" className="ms-2">Subscribe</Button>
+              </div>
+            </Col>
+          </Row>
+          <hr className="my-4" />
+          <div className="text-center">
+            <small>© 2025 HatawHub. All rights reserved.</small>
+          </div>
+        </Container>
       </footer>
-    </div>
+    </>
   );
 };
 

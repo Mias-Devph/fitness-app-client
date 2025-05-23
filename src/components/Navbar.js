@@ -13,10 +13,10 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-dark">
+    <nav className="navbar navbar-expand-lg navbar-light bg-dark sticky-top">
       <div className="container">
-        <Link className="navbar-brand text-white">
-          Fitness Tracker
+        <Link className="navbar-brand text-white" to="/">
+          HatawHub
         </Link>
 
         <button
@@ -33,11 +33,18 @@ const Navbar = () => {
 
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
-            {user ? (
-              <>
                 <li className="nav-item">
                   <Link className="nav-link text-white" to="/">
                     Home
+                  </Link>
+                </li>
+
+            {user ? (
+              <>
+
+                <li className="nav-item ">
+                  <Link className="nav-link text-white" to="/dashboard">
+                    Dashboard
                   </Link>
                 </li>
 

@@ -104,7 +104,7 @@ const Register = () => {
           onChange={handleChange}
           required
         />
-        <button className="btn btn-success w-100">Register</button>
+        <button className="btn btn-dark w-100">Register</button>
       </form>
     </div>
   );
